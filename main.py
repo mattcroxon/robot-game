@@ -2,6 +2,8 @@
 
 from enum import Enum
 import uuid
+import logging
+logger = logging.getLogger(__name__)
 
 class Orientation(Enum):
     N = 0
@@ -18,7 +20,7 @@ class Grid():
         self.maxWidth = int(x)
         self.maxHeight = int(y)
         # print("I am in init, {y}", (self.matrix))
-       
+
     def addRobot(self, robot):
         initialPosition = robot.getCoordinates()
         self.robots[robot.getId()] = (initialPosition['x'], initialPosition['y'], False) # x, y, robotScent
@@ -29,7 +31,6 @@ class Grid():
         print(f"{robot.getId()} is dead and has been removed")
         
     def getTargetPosition(self, currentPosition, direction, steps): 
-        print("In get target position. Current position is ", currentPosition)
         if direction == Orientation.N:
             if  currentPosition[1] - int(steps) < 0: 
                 return (currentPosition[0], 0, True)
@@ -54,29 +55,22 @@ class Grid():
             raise Exception("Wrong orientation")
 
     def moveRobot(self, robotToMove, orientation, steps):
-        print('RobotToMove is ', robotToMove)
+        logger.info('RobotToMove is %s' % robotToMove)
         currentRobotPosition = self.robots[robotToMove.getId()]
         targetPosition = self.getTargetPosition(currentRobotPosition, orientation, steps)
-        print("Target position is", targetPosition)
+        logger.info("Target position is (x =%s, y=%s, d=%s)" % (targetPosition[0], targetPosition[1], targetPosition[2]))
         
         if targetPosition[2] == True: # Robot has moved off the grid
             if (targetPosition in self.robotScents):
-                print("An existing scent was found. Robot is not moving further")
+                logger.info("An existing scent was found. Robot is not moving further")
                 self.robots[robotToMove.getId()] = targetPosition    
             else:
                 robotToMove.kill()
                 self.removeRobot(robotToMove)
                 self.robotScents.append(targetPosition)
-                print("Robot has died: ", robotToMove)
+                logger.info("Robot has died: %s " % robotToMove)
         else:
             self.robots[robotToMove.getId()] = targetPosition
-            
-    def toString(self):
-        print("============================")
-        print('Robots = ', self.robots)
-        print('Dead robots = ', self.deadRobots)
-        print('Robot scents = ', self.robotScents)
-        print("============================")
 
 class Robot(): 
     def __init__(self, id, grid, initialX, initialY, initialDirection) -> None:
@@ -99,7 +93,7 @@ class Robot():
         self.alive = False
     
     def rotate(self, command):
-        print("Initial direction is", self.direction)
+        logger.info("Initial direction is %s" % self.direction)
         match command:
             case "L":
                 newDirection =  (self.direction.value - 90) % 360
@@ -121,25 +115,25 @@ class Robot():
         # print("I am in the move method")
         # print('Current position ', self.getCoordinates())
         if self.alive == False:
-            print("Robot " + str(self.id) + " is dead and won't be moving")
+            logger.info("Robot %s is dead and won't be moving" %  self.id)
         else:
             match command:
                 case "L":
                     # self.orientation = (self.orientation - 90) % 360
                     self.rotate(command)
-                    print(f"Robot {self.id} moved left - It is now at ", self.getCoordinates())
+                    logger.info(f"Robot %s moved left" % self.id)
                 case "R":
                     # self.orientation = (self.orientation - 90) % 360
                     self.rotate(command)
-                    print(f"Robot {self.id} moved right - It is now at ", self.getCoordinates())
+                    logger.info(f"Robot %s moved right" % self.id)
                 case "F":
                     self.grid.moveRobot(self, self.direction, 1)
-                    print(f"Robot {self.id} moved forward. It is now at ", self.getCoordinates())
+                    logger.info(f"Robot %s moved forward" % self.id)
                 case _: 
                     raise Exception("Command not known")
         
     def __str__(self) -> str:
-        return "Robot ID = " + str(self.id) + " [x = " + str(self.x) + ", y = " + str(self.y) + ", direction = " + str(self.direction.name) + "]"
+        return ("Robot ID = %s [x = %s, y = %s, direction = %s]" % (self.id, self.x, self.y, self.direction.name))
        
 def parseInput(file):
     f = open(file)
@@ -169,21 +163,17 @@ def processInput(input):
     # print(input)
     grid = Grid(input['gridSize']['x'], input['gridSize']['y'])
     for robotInstruction in input['robotGuidance']:
-        print(robotInstruction)
         robot = Robot(uuid.uuid4(), grid, 
                       robotInstruction['startingPosition']['x'], 
                       robotInstruction['startingPosition']['y'], 
                       robotInstruction['startingPosition']['direction'])
-        print(robot)
         for individualMove in robotInstruction['instructions']:
-            print(individualMove)
             robot.move(individualMove)
-            
-        
-    print(grid.robots)
-    pass
     
 def main():
+    logging.basicConfig(filename='robotDebug.log', level=logging.INFO)
+    logger.info('Started')
     processInput(parseInput('input.txt'))
+    logger.info('Finished')
 
 main()
