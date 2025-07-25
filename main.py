@@ -3,6 +3,8 @@
 from enum import Enum
 import uuid
 import logging
+import datetime
+
 logger = logging.getLogger(__name__)
 
 class Orientation(Enum):
@@ -19,7 +21,7 @@ class Grid():
         self.robotScents = []
         self.maxWidth = int(x)
         self.maxHeight = int(y)
-        logger.info("Initialised grid with co-ordinates of x = %i, y = %i" % (int(x),int(y)))
+        logger.debug("Initialised grid with co-ordinates of x = %i, y = %i" % (int(x),int(y)))
         # print("I am in init, {y}", (self.matrix))
 
     def addRobot(self, robot):
@@ -29,7 +31,7 @@ class Grid():
     def removeRobot(self, robot):
         self.robots.pop(robot.getId())
         self.deadRobots.append(robot)
-        logger.info("%s is dead and has been removed" % robot.getId())
+        logger.debug("%s is dead and has been removed" % robot.getId())
         
     def getTargetPosition(self, currentPosition, direction, steps): 
         if direction == Orientation.N:
@@ -57,19 +59,19 @@ class Grid():
 
     def getRobotPositions(self):
         for robotKey in self.robots:
-            logger.info("Robot position - Robot %s - %s" % (str(robotKey), self.robots[robotKey]))
+            logger.debug("Robot position - Robot %s - %s" % (str(robotKey), self.robots[robotKey]))
         return self.robots
         
     def moveRobot(self, robotToMove, orientation, steps):
-        logger.info('Moving robot: %s' % robotToMove)
+        logger.debug('Moving robot: %s' % robotToMove)
         currentRobotPosition = self.robots[robotToMove.getId()]
         targetPosition = self.getTargetPosition(currentRobotPosition, orientation, steps)
-        logger.info("Target position is (x =%s, y=%s, d=%s)" % (targetPosition[0], targetPosition[1], targetPosition[2]))
+        logger.debug("Target position is (x =%s, y=%s, d=%s)" % (targetPosition[0], targetPosition[1], targetPosition[2]))
         
         if targetPosition[2] == True: # Robot has moved off the grid
-            logger.info("Robot %s in intending to move off the grid" % robotToMove.getId())
+            logger.debug("Robot %s in intending to move off the grid" % robotToMove.getId())
             if (targetPosition in self.robotScents):
-                logger.info("An existing scent was found. Robot %s is not moving further. Robot is now at %s" % (robotToMove.getId(), targetPosition))
+                logger.debug("An existing scent was found. Robot %s is not moving further. Robot is now at %s" % (robotToMove.getId(), targetPosition))
                 self.robots[robotToMove.getId()] = targetPosition 
                 robotToMove.setPosition(targetPosition)
             else:
@@ -77,11 +79,11 @@ class Grid():
                 self.removeRobot(robotToMove)
                 robotToMove.setPosition(targetPosition)
                 self.robotScents.append(targetPosition)
-                logger.info("Robot %s has died - resting place is %s" % (robotToMove.getId(), targetPosition))
+                logger.debug("Robot %s has died - resting place is %s" % (robotToMove.getId(), targetPosition))
         else:
             self.robots[robotToMove.getId()] = targetPosition
             robotToMove.setPosition(targetPosition)
-            logger.info("Robot %s has moved to %s" % (robotToMove.getId(), targetPosition))
+            logger.debug("Robot %s has moved to %s" % (robotToMove.getId(), targetPosition))
 
 class Robot(): 
     def __init__(self, id, grid, initialX, initialY, initialDirection) -> None:
@@ -92,7 +94,7 @@ class Robot():
         self.direction = Orientation[initialDirection]
         self.grid = grid
         self.grid.addRobot(self)
-        logger.info("Initialised robot - id = %s, init x = %s, init y = %s, init direction = %s" % (self.id, initialX, initialY, initialDirection))
+        logger.debug("Initialised robot - id = %s, init x = %s, init y = %s, init direction = %s" % (self.id, initialX, initialY, initialDirection))
     
     def get(self):
         return self
@@ -114,7 +116,7 @@ class Robot():
                 raise Exception("Rotation command not known")
         # print(f"Robot {self.id} - move output is ", newDirection)
         self.direction = Orientation(newDirection)
-        logger.info("Rotating robot %s. Initial direction was %s, command was %s, new direction is %s" % (self.id, initialDirection, command, self.direction))
+        logger.debug("Rotating robot %s. Initial direction was %s, command was %s, new direction is %s" % (self.id, initialDirection, command, self.direction))
     
     def getCoordinates(self):
         return { 
@@ -131,17 +133,17 @@ class Robot():
         # print("I am in the move method")
         # print('Current position ', self.getCoordinates())
         if self.alive == False:
-            logger.info("Robot %s is dead and won't be moving" %  self.id)
+            logger.debug("Robot %s is dead and won't be moving" %  self.id)
         else:
             match command:
                 case "L":
-                    logger.info("Robot %s - command is L. Rotating robot" % self.id)
+                    logger.debug("Robot %s - command is L. Rotating robot" % self.id)
                     self.rotate(command)
                 case "R":
-                    logger.info("Robot %s - command is R. Rotating robot" % self.id)
+                    logger.debug("Robot %s - command is R. Rotating robot" % self.id)
                     self.rotate(command)
                 case "F":
-                    logger.info(f"Robot %s - command is F, moving robot forward in the direction of %s, by %i step" % (self.id, self.direction, 1))
+                    logger.debug(f"Robot %s - command is F, moving robot forward in the direction of %s, by %i step" % (self.id, self.direction, 1))
                     self.grid.moveRobot(self, self.direction, 1)
                 case _: 
                     raise Exception("Command not known")
@@ -186,10 +188,12 @@ def processInput(input):
     grid.getRobotPositions()
     
 def main():
-    logging.basicConfig(filename='robotDebug.log', filemode='w', level=logging.INFO)
-    logger.info('Started')
+    startTime = datetime.datetime.now()
+    print("Robot processing started at %s" % startTime)
+    logging.basicConfig(filename='robotDebug.log', filemode='w', level=logging.DEBUG)
+    logger.debug('Started at %s' % startTime)
     processInput(parseInput('input.txt'))
-    
-    logger.info('Finished')
-    print("Robot processing has completed")
+    finish_time = datetime.datetime.now()
+    logger.debug('Finished at %s' % finish_time)
+    print("Robot processing finished at %s" % finish_time)
 main()
