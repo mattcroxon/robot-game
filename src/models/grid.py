@@ -6,6 +6,8 @@ logger = logging.getLogger(__name__)
 
 class Grid():
     def __init__(self, x, y) -> None:
+        if ((x > 50) or (y > 50)):
+            raise Exception("Cannot exceed a maximum value of 50 for the grid co-ordinates")
         # self.matrix = {}
         self.robots = {}
         self.deadRobots = []
