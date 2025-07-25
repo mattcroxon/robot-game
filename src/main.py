@@ -12,7 +12,7 @@ INPUT_FILE = '../input_data/input.txt'
 def main():
     startTime = datetime.datetime.now()
     print("Robot processing started at %s" % startTime)
-    logging.basicConfig(filename='../logs/robotDebug.log', filemode='w', level=logging.DEBUG)
+    logging.basicConfig(filename='../logs/robotDebug.log', filemode='w', level=logging.INFO)
     logger.debug('Started at %s' % startTime)
     
     instructions = FileProcessor.process(INPUT_FILE)

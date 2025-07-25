@@ -41,7 +41,8 @@ class Robot():
         return { 
                 'x': int(self.x), 
                 'y': int(self.y), 
-                'direction': self.direction
+                'direction': self.direction,
+                'alive': self.alive
         }
          
     def setPosition(self, position):

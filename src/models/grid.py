@@ -6,14 +6,20 @@ logger = logging.getLogger(__name__)
 
 class Grid():
     def __init__(self, x, y) -> None:
-        if ((x > 50) or (y > 50)):
+        maxWidth = int(x)
+        maxHeight = int(y)
+           
+        if ((maxWidth < 0) or (maxHeight < 0)): 
+            raise Exception("Cannot instantiate with non-positive integers")
+        
+        if ((maxWidth > 50) or (maxHeight> 50)):
             raise Exception("Cannot exceed a maximum value of 50 for the grid co-ordinates")
         # self.matrix = {}
         self.robots = {}
         self.deadRobots = []
         self.robotScents = []
-        self.maxWidth = int(x)
-        self.maxHeight = int(y)
+        self.maxWidth = maxWidth
+        self.maxHeight = maxHeight
         logger.debug("Initialised grid with co-ordinates of x = %i, y = %i" % (int(x),int(y)))
         # print("I am in init, {y}", (self.matrix))
 
