@@ -19,4 +19,4 @@ Execute `pytest` from the `src` folder. Executing it from the root folder will r
 
 - The abstractions may have bled across the various models. There could be work to ensure that the Single Responsibility Principle is more closely adhered to 
 
-- There are no doubt, many other issues, but I'm hopeful that this challenge is not viewed in the light of me coming from a professional Software Engineer
+- There are no doubt, many other issues, but I'm hopeful that this challenge is not viewed in the light of me coming from a professional Software Engineering background
