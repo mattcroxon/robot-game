@@ -38,17 +38,17 @@ class Grid():
             raise Exception("Steps cannot be negative")
         
         if direction == Orientation.N:
+            if  currentPosition[1] + stepsToMove > self.maxHeight: 
+                return (currentPosition[0], self.maxHeight, True)
+            else: 
+                return (currentPosition[0], currentPosition[1] + stepsToMove, False)
+        elif direction == Orientation.S:
             if  currentPosition[1] - stepsToMove < 0: 
                 return (currentPosition[0], 0, True)
             else: 
                 return (currentPosition[0], currentPosition[1] - stepsToMove, False)
-        elif direction == Orientation.S:
-            if  currentPosition[1] + int(steps) > self.maxHeight: 
-                return (currentPosition[0], self.maxHeight, True)
-            else: 
-                return (currentPosition[0], currentPosition[1] + stepsToMove, False)
         elif direction == Orientation.E:
-            if  currentPosition[0] + int(steps) > self.maxWidth: 
+            if  currentPosition[0] + stepsToMove > self.maxWidth: 
                 return (self.maxWidth, currentPosition[1], True)
             else: 
                 return (currentPosition[0] + stepsToMove, currentPosition[1], False)

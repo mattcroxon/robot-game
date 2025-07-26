@@ -7,12 +7,12 @@ from robot_game import RobotGame
 
 logger = logging.getLogger(__name__)
 
-INPUT_FILE = '../input_data/input.txt'
+INPUT_FILE = '../input_data/input_three.txt'
 
 def main():
     startTime = datetime.datetime.now()
     print("Robot processing started at %s" % startTime)
-    logging.basicConfig(filename='../logs/robotDebug.log', filemode='w', level=logging.INFO)
+    logging.basicConfig(filename='../logs/robotDebug.log', filemode='w', level=logging.DEBUG)
     logger.debug('Started at %s' % startTime)
     
     instructions = FileProcessor.process(INPUT_FILE)

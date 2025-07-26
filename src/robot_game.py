@@ -15,6 +15,7 @@ class RobotGame():
         
     
     def run(self):
+        print("Running a new game")
         for robotInstruction in self.instructions['robotGuidance']:
             robot = Robot(uuid.uuid4(), self.grid, 
                         robotInstruction['startingPosition']['x'], 
@@ -27,8 +28,11 @@ class RobotGame():
             robotPosition = robot.getCoordinates()
             self.finalRobotPositions.append(robotPosition)
             logger.info("Robot %s final position - x = %d, y = %s, direction = %s, alive = %s" % (robot.getId(), robotPosition['x'], robotPosition['y'], robotPosition['direction'], robotPosition['alive']))
+            logger.info("Final robot positions are", self.finalRobotPositions)
     
     def getFinalPositions(self):
+        print("Final robot positions are")
+        print(self.finalRobotPositions)
         return self.finalRobotPositions        
     
         

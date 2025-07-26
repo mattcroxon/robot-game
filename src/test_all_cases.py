@@ -5,23 +5,16 @@ from enums.Orientation import Orientation
 from processors.file_processor import FileProcessor
 from robot_game import RobotGame
 
-def process_and_return_position(file):
-    instructions = FileProcessor.process(file)
+INPUT_FILE = "../input_data/input_all.txt"
+
+def test_robot_final_positions():
+    instructions = FileProcessor.process(INPUT_FILE)
     game = RobotGame(instructions)
     game.run()
-    return game.getFinalPositions()
-
-def test_sample_input_one():
-    expected_position = { 'x': 1, 'y': 1, 'direction': Orientation['E'], 'alive': True }
-    positions = process_and_return_position("../input_data/input_one.txt")    
-    assert positions[0] == expected_position
-    
-def test_sample_input_two():
-    expected_position = { 'x': 3, 'y': 3, 'direction': Orientation['N'], 'alive': False }
-    positions = process_and_return_position("../input_data/input_two.txt")    
-    assert positions[0] == expected_position
-    
-def test_sample_input_three():
-    expected_position = { 'x': 2, 'y': 3, 'direction': Orientation['S'], 'alive': True }
-    positions = process_and_return_position("../input_data/input_three.txt")    
-    assert positions[0] == expected_position
+    finalPositions = game.getFinalPositions()
+    expected_position_1 = { 'x': 1, 'y': 1, 'direction': Orientation['E'], 'alive': True }
+    expected_position_2 = { 'x': 3, 'y': 3, 'direction': Orientation['N'], 'alive': False }
+    expected_position_3 = { 'x': 2, 'y': 3, 'direction': Orientation['S'], 'alive': True }
+    assert expected_position_1 == finalPositions[0]
+    assert expected_position_2 == finalPositions[1]
+    assert expected_position_3 == finalPositions[2]
