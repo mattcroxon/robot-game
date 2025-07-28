@@ -20,7 +20,7 @@ def main():
     instructions = FileProcessor.process(INPUT_FILE)
     game = RobotGame(instructions)
     game.run()
-    finalPositions = game.getFinalPositions()
+    finalPositions = game.printFinalPositions()
     logger.info("Final robot positions are...")
     logger.info(finalPositions)
     print(finalPositions)

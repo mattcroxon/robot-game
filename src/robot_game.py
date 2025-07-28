@@ -29,8 +29,10 @@ class RobotGame():
             logger.info("Robot %s final position - x = %d, y = %s, direction = %s, alive = %s" % (robot.getId(), robotPosition['x'], robotPosition['y'], robotPosition['direction'], robotPosition['alive']))
     
     
-    
     def getFinalPositions(self):
+        return self.finalRobotPositions
+    
+    def printFinalPositions(self):
         tempString = ''
         for position in self.finalRobotPositions:
             tempString += str(position['x']) + ' ' + str(position['y']) + " " + str(position['direction'].name) + " "
