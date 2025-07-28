@@ -1,0 +1,100 @@
+DEBUG:__main__:Started at 2025-07-28 10:46:30.731785
+DEBUG:models.grid:Initialised grid with co-ordinates of x = 5, y = 3
+DEBUG:models.robot:Initialised robot - id = 41a2f323-90f7-42ef-a465-318e237343e7, init x = 1, init y = 1, init direction = E
+DEBUG:models.robot:Robot 41a2f323-90f7-42ef-a465-318e237343e7 - command is R. Rotating robot
+DEBUG:models.robot:Rotating robot 41a2f323-90f7-42ef-a465-318e237343e7. Initial direction was Orientation.E, command was R, new direction is Orientation.S
+DEBUG:models.robot:Robot 41a2f323-90f7-42ef-a465-318e237343e7 - command is F, moving robot forward in the direction of Orientation.S, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 41a2f323-90f7-42ef-a465-318e237343e7. Current position = [x = 1, y = 1, current direction = S]
+DEBUG:models.grid:Target position is (x =1, y=0, d=False)
+DEBUG:models.grid:Robot 41a2f323-90f7-42ef-a465-318e237343e7 has moved to (1, 0, False)
+DEBUG:models.robot:Robot 41a2f323-90f7-42ef-a465-318e237343e7 - command is R. Rotating robot
+DEBUG:models.robot:Rotating robot 41a2f323-90f7-42ef-a465-318e237343e7. Initial direction was Orientation.S, command was R, new direction is Orientation.W
+DEBUG:models.robot:Robot 41a2f323-90f7-42ef-a465-318e237343e7 - command is F, moving robot forward in the direction of Orientation.W, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 41a2f323-90f7-42ef-a465-318e237343e7. Current position = [x = 1, y = 0, current direction = W]
+DEBUG:models.grid:Target position is (x =0, y=0, d=False)
+DEBUG:models.grid:Robot 41a2f323-90f7-42ef-a465-318e237343e7 has moved to (0, 0, False)
+DEBUG:models.robot:Robot 41a2f323-90f7-42ef-a465-318e237343e7 - command is R. Rotating robot
+DEBUG:models.robot:Rotating robot 41a2f323-90f7-42ef-a465-318e237343e7. Initial direction was Orientation.W, command was R, new direction is Orientation.N
+DEBUG:models.robot:Robot 41a2f323-90f7-42ef-a465-318e237343e7 - command is F, moving robot forward in the direction of Orientation.N, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 41a2f323-90f7-42ef-a465-318e237343e7. Current position = [x = 0, y = 0, current direction = N]
+DEBUG:models.grid:Target position is (x =0, y=1, d=False)
+DEBUG:models.grid:Robot 41a2f323-90f7-42ef-a465-318e237343e7 has moved to (0, 1, False)
+DEBUG:models.robot:Robot 41a2f323-90f7-42ef-a465-318e237343e7 - command is R. Rotating robot
+DEBUG:models.robot:Rotating robot 41a2f323-90f7-42ef-a465-318e237343e7. Initial direction was Orientation.N, command was R, new direction is Orientation.E
+DEBUG:models.robot:Robot 41a2f323-90f7-42ef-a465-318e237343e7 - command is F, moving robot forward in the direction of Orientation.E, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 41a2f323-90f7-42ef-a465-318e237343e7. Current position = [x = 0, y = 1, current direction = E]
+DEBUG:models.grid:Target position is (x =1, y=1, d=False)
+DEBUG:models.grid:Robot 41a2f323-90f7-42ef-a465-318e237343e7 has moved to (1, 1, False)
+INFO:robot_game:Robot 41a2f323-90f7-42ef-a465-318e237343e7 final position - x = 1, y = 1, direction = Orientation.E, alive = True
+DEBUG:models.robot:Initialised robot - id = 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf, init x = 3, init y = 2, init direction = N
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf - command is F, moving robot forward in the direction of Orientation.N, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf. Current position = [x = 3, y = 2, current direction = N]
+DEBUG:models.grid:Target position is (x =3, y=3, d=False)
+DEBUG:models.grid:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf has moved to (3, 3, False)
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf - command is R. Rotating robot
+DEBUG:models.robot:Rotating robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf. Initial direction was Orientation.N, command was R, new direction is Orientation.E
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf - command is R. Rotating robot
+DEBUG:models.robot:Rotating robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf. Initial direction was Orientation.E, command was R, new direction is Orientation.S
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf - command is F, moving robot forward in the direction of Orientation.S, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf. Current position = [x = 3, y = 3, current direction = S]
+DEBUG:models.grid:Target position is (x =3, y=2, d=False)
+DEBUG:models.grid:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf has moved to (3, 2, False)
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf - command is L. Rotating robot
+DEBUG:models.robot:Rotating robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf. Initial direction was Orientation.S, command was L, new direction is Orientation.E
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf - command is L. Rotating robot
+DEBUG:models.robot:Rotating robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf. Initial direction was Orientation.E, command was L, new direction is Orientation.N
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf - command is F, moving robot forward in the direction of Orientation.N, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf. Current position = [x = 3, y = 2, current direction = N]
+DEBUG:models.grid:Target position is (x =3, y=3, d=False)
+DEBUG:models.grid:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf has moved to (3, 3, False)
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf - command is F, moving robot forward in the direction of Orientation.N, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf. Current position = [x = 3, y = 3, current direction = N]
+DEBUG:models.grid:Target position is (x =3, y=3, d=True)
+DEBUG:models.grid:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf in intending to move off the grid
+DEBUG:models.grid:3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf is dead and has been removed
+DEBUG:models.grid:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf has died - resting place is (3, 3, True)
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf is dead and won't be moving
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf is dead and won't be moving
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf is dead and won't be moving
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf is dead and won't be moving
+DEBUG:models.robot:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf is dead and won't be moving
+INFO:robot_game:Robot 3c3b218d-bfcf-4cd1-8e0a-5c794ffe4adf final position - x = 3, y = 3, direction = Orientation.N, alive = False
+DEBUG:models.robot:Initialised robot - id = 5cab01c6-f53a-4a16-a443-6dbea3c46060, init x = 0, init y = 3, init direction = W
+DEBUG:models.robot:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 - command is L. Rotating robot
+DEBUG:models.robot:Rotating robot 5cab01c6-f53a-4a16-a443-6dbea3c46060. Initial direction was Orientation.W, command was L, new direction is Orientation.S
+DEBUG:models.robot:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 - command is L. Rotating robot
+DEBUG:models.robot:Rotating robot 5cab01c6-f53a-4a16-a443-6dbea3c46060. Initial direction was Orientation.S, command was L, new direction is Orientation.E
+DEBUG:models.robot:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 - command is F, moving robot forward in the direction of Orientation.E, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 5cab01c6-f53a-4a16-a443-6dbea3c46060. Current position = [x = 0, y = 3, current direction = E]
+DEBUG:models.grid:Target position is (x =1, y=3, d=False)
+DEBUG:models.grid:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 has moved to (1, 3, False)
+DEBUG:models.robot:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 - command is F, moving robot forward in the direction of Orientation.E, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 5cab01c6-f53a-4a16-a443-6dbea3c46060. Current position = [x = 1, y = 3, current direction = E]
+DEBUG:models.grid:Target position is (x =2, y=3, d=False)
+DEBUG:models.grid:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 has moved to (2, 3, False)
+DEBUG:models.robot:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 - command is F, moving robot forward in the direction of Orientation.E, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 5cab01c6-f53a-4a16-a443-6dbea3c46060. Current position = [x = 2, y = 3, current direction = E]
+DEBUG:models.grid:Target position is (x =3, y=3, d=False)
+DEBUG:models.grid:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 has moved to (3, 3, False)
+DEBUG:models.robot:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 - command is L. Rotating robot
+DEBUG:models.robot:Rotating robot 5cab01c6-f53a-4a16-a443-6dbea3c46060. Initial direction was Orientation.E, command was L, new direction is Orientation.N
+DEBUG:models.robot:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 - command is F, moving robot forward in the direction of Orientation.N, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 5cab01c6-f53a-4a16-a443-6dbea3c46060. Current position = [x = 3, y = 3, current direction = N]
+DEBUG:models.grid:Target position is (x =3, y=3, d=True)
+DEBUG:models.grid:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 in intending to move off the grid
+DEBUG:models.grid:An existing scent was found. Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 is not moving further. Robot is now at (3, 3, True)
+DEBUG:models.robot:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 - command is L. Rotating robot
+DEBUG:models.robot:Rotating robot 5cab01c6-f53a-4a16-a443-6dbea3c46060. Initial direction was Orientation.N, command was L, new direction is Orientation.W
+DEBUG:models.robot:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 - command is F, moving robot forward in the direction of Orientation.W, by 1 step
+DEBUG:models.grid:Moving robot: Robot ID = 5cab01c6-f53a-4a16-a443-6dbea3c46060. Current position = [x = 3, y = 3, current direction = W]
+DEBUG:models.grid:Target position is (x =2, y=3, d=False)
+DEBUG:models.grid:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 has moved to (2, 3, False)
+DEBUG:models.robot:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 - command is L. Rotating robot
+DEBUG:models.robot:Rotating robot 5cab01c6-f53a-4a16-a443-6dbea3c46060. Initial direction was Orientation.W, command was L, new direction is Orientation.S
+INFO:robot_game:Robot 5cab01c6-f53a-4a16-a443-6dbea3c46060 final position - x = 2, y = 3, direction = Orientation.S, alive = True
+INFO:__main__:Final robot positions are...
+INFO:__main__:1 1 E 
+3 3 N LOST
+2 3 S 
+
+DEBUG:__main__:Finished at 2025-07-28 10:46:30.732967
