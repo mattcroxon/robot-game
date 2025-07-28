@@ -1,4 +1,4 @@
-I originally joined [BJSS]() in the role of Architect having come from a career at [Accenture]() where I was mostly in Technical Delivery Manager position. Whilst having studied Computer Science at University, I have never been in the role of Software Engineer in a professional capacity. As such, please excuse any coding conventions or patterns that don't follow best practice. 
+I originally joined [BJSS](https://www.bjss.com/about-us) in the role of Architect having come from a career at Accenture where I was mostly in Technical Delivery Manager position. Whilst having studied Computer Science at University, I have never been in the role of Software Engineer in a professional capacity. As such, please excuse any coding conventions or patterns that don't follow best practice. 
 
 I decided to settle on using Python given that it was a language that I could pick up pretty quickly to get a workable solution. 
 
