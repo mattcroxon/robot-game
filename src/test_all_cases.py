@@ -1,11 +1,12 @@
-import pytest
 from models.grid import Grid
 from enums.Orientation import Orientation
 
 from processors.file_processor import FileProcessor
 from robot_game import RobotGame
 
-INPUT_FILE = "../input_data/input_all.txt"
+from definitions import ROOT_DIR
+
+INPUT_FILE = ROOT_DIR + '/../input_data/input_all.txt'
 
 def test_robot_final_positions():
     instructions = FileProcessor.process(INPUT_FILE)
